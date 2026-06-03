@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Hello World Expo",
+    "slug": "hello-world-expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
