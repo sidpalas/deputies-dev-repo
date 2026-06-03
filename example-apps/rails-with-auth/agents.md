@@ -24,9 +24,14 @@ Use this project’s preview mode for temporary environments that do not keep
 ```ruby
 config.hosts << /\A([a-zA-Z0-9-]+\.)*deputies\.localhost\z/
 config.hosts << /\Alocalhost(?::\d+)?\z/
+config.hosts << "127.0.0.1"
 config.hosts << /\A[a-zA-Z0-9-]+\.daytonaproxy01\.net\z/
 config.action_controller.forgery_protection_origin_check = false
 ```
+
+- Allow `127.0.0.1` as a host name, not as a port-specific host. Rails string
+  hosts already match optional ports, so use `config.hosts << "127.0.0.1"`
+  instead of `config.hosts << "127.0.0.1:3000"`.
 
 ## Start preview server
 
@@ -39,21 +44,21 @@ mise run preview
 - Direct command:
 
 ```bash
-PREVIEW_PLAIN_SECRETS=1 RAILS_ENV=preview bin/rails server
+mise exec -- env PREVIEW_PLAIN_SECRETS=1 RAILS_ENV=preview bin/rails server
 ```
 
 For production-like host/port binding, use your normal Rails options on the same
 command:
 
 ```bash
-PREVIEW_PLAIN_SECRETS=1 RAILS_ENV=preview bin/rails server -b 0.0.0.0 -p 3000
+mise exec -- env PREVIEW_PLAIN_SECRETS=1 RAILS_ENV=preview bin/rails server -b 0.0.0.0 -p 3000
 ```
 
 ## Prepare preview database
 
 ```bash
-RAILS_ENV=preview PREVIEW_PLAIN_SECRETS=1 bundle exec bin/rails db:prepare
-RAILS_ENV=preview PREVIEW_PLAIN_SECRETS=1 bundle exec bin/rails db:seed
+mise exec -- env RAILS_ENV=preview PREVIEW_PLAIN_SECRETS=1 bundle exec bin/rails db:prepare
+mise exec -- env RAILS_ENV=preview PREVIEW_PLAIN_SECRETS=1 bundle exec bin/rails db:seed
 ```
 
 ## Login
