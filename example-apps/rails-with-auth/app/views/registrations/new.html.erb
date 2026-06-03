@@ -1,0 +1,36 @@
+<main class="auth-shell">
+  <h1>Create account</h1>
+
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with model: @user, local: true do |form| %>
+    <div>
+      <%= form.label :username %><br>
+      <%= form.text_field :username, required: true, autocomplete: "username" %>
+    </div>
+
+    <div>
+      <%= form.label :password %><br>
+      <%= form.password_field :password, required: true, autocomplete: "new-password" %>
+    </div>
+
+    <div>
+      <%= form.label :password_confirmation %><br>
+      <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
+    </div>
+
+    <p>
+      <%= form.submit "Create account" %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= link_to "Already have an account? Sign in", login_path %>
+  </p>
+</main>

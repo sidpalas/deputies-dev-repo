@@ -1,0 +1,20 @@
+<main class="auth-shell">
+  <h1>Sign in</h1>
+
+  <%= form_with url: session_path, method: :post, local: true do |form| %>
+    <div>
+      <%= form.label :username %><br>
+      <%= text_field_tag :username, params[:username], required: true, autocomplete: "username" %>
+    </div>
+
+    <div>
+      <%= form.label :password %><br>
+      <%= password_field_tag :password, nil, required: true, autocomplete: "current-password" %>
+    </div>
+
+    <p>
+      <%= form.submit "Sign in" %>
+    </p>
+  <% end %>
+
+</main>

@@ -1,0 +1,10 @@
+[tools]
+ruby = "latest"
+
+[tasks.dev]
+run = "bin/rails server"
+description = "Start the Rails app in development"
+
+[tasks.preview]
+run = "PREVIEW_PLAIN_SECRETS=1 RAILS_ENV=preview bin/rails server"
+description = "Start preview app in separate preview environment"

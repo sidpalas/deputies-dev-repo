@@ -1,0 +1,13 @@
+/config/master.key
+/.bundle/
+/coverage/
+/log/
+/tmp/
+/tmp/pids/
+/storage/
+/vendor/bundle/
+/db/*.sqlite3
+/db/*.sqlite3-*
+/public/assets
+/node_modules/
+/dump.rdb

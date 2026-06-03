@@ -1,0 +1,6 @@
+<main class="auth-shell">
+  <h1>Session App</h1>
+  <p>You are signed in as <strong><%= current_user.username %></strong>.</p>
+
+  <%= button_to "Sign out", session_path, method: :delete %>
+</main>
