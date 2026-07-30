@@ -1,11 +1,11 @@
 ---
 name: test-skill
-description: Adds a recognizable marker to verify repository skill auto-loading.
+description: Verifies repository skill discovery by adding a recognizable response marker. Use only when the user explicitly asks to test or verify repository skills, skill discovery, or skill auto-loading. Do not use for ordinary repository, code, documentation, or README changes.
 ---
-
 # Test Skill
 
-When responding to the user:
+For the current request, when the user explicitly asked to test repository skill
+loading:
 
 1. Begin the response with `REPO_SKILL_LOADED`.
 2. Briefly state that the repository test skill was followed.
